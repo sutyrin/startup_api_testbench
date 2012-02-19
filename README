@@ -3,7 +3,7 @@
 3. tailor users_config.php to your local mysql settings.
 3.1. It is best if you login to your localhost mysql root and execute:
     create database startup_api_test;
-    grant all privileges on startup_api_test.* to 'startup'@'localhost' identitied by 'startup';
+    grant all privileges on startup_api_test.* to 'startup'@'localhost' identified by 'startup';
     flush privileges;
 4. cd users/tests
 5. make test
