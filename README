@@ -1,0 +1,5 @@
+1. checkout users to ./users 
+2. checkout simpletest to ./simpletest
+3. tailor users_config.php to your local mysql settings.
+4. cd users/tests
+5. make test
