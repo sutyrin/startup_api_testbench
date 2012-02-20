@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.41, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.8, for FreeBSD7.0 (amd64)
 --
 -- Host: localhost    Database: startup_test
 -- ------------------------------------------------------
--- Server version	5.1.41-3ubuntu12.10
+-- Server version	5.5.8
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -119,7 +119,7 @@ CREATE TABLE `u_account_users` (
 
 LOCK TABLES `u_account_users` WRITE;
 /*!40000 ALTER TABLE `u_account_users` DISABLE KEYS */;
-INSERT INTO `u_account_users` VALUES (80,58,1),(81,59,1),(82,60,1),(83,61,1),(84,62,1);
+INSERT INTO `u_account_users` VALUES (80,58,1),(81,59,1),(82,60,1),(83,61,1),(84,62,1),(85,65,1);
 /*!40000 ALTER TABLE `u_account_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,9 +137,9 @@ CREATE TABLE `u_accounts` (
   `schedule` varchar(256) DEFAULT NULL,
   `engine` varchar(256) DEFAULT NULL,
   `active` tinyint(1) DEFAULT '1',
-  `schedule_changed` datetime DEFAULT NULL,
+  `next_charge` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,7 +148,7 @@ CREATE TABLE `u_accounts` (
 
 LOCK TABLES `u_accounts` WRITE;
 /*!40000 ALTER TABLE `u_accounts` DISABLE KEYS */;
-INSERT INTO `u_accounts` VALUES (80,'FREE (irkko)','0',NULL,NULL,1,NULL),(81,'FREE (Paul)','0',NULL,NULL,1,NULL),(82,'FREE (irina)','0',NULL,NULL,1,NULL),(83,'FREE (Sergey Chernyshev)','0',NULL,NULL,1,NULL),(84,'FREE (qqq)','0',NULL,NULL,1,NULL);
+INSERT INTO `u_accounts` VALUES (80,'FREE (irkko)','0',NULL,NULL,1,NULL),(81,'FREE (Paul)','0',NULL,NULL,1,NULL),(82,'FREE (irina)','0',NULL,NULL,1,NULL),(83,'FREE (Sergey Chernyshev)','0',NULL,NULL,1,NULL),(84,'FREE (qqq)','0',NULL,NULL,1,NULL),(85,'me','PLAN_FREE',NULL,NULL,1,NULL);
 /*!40000 ALTER TABLE `u_accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -612,7 +612,7 @@ CREATE TABLE `u_user_preferences` (
 
 LOCK TABLES `u_user_preferences` WRITE;
 /*!40000 ALTER TABLE `u_user_preferences` DISABLE KEYS */;
-INSERT INTO `u_user_preferences` VALUES (63,NULL),(64,NULL),(58,80),(59,81),(60,82),(61,83),(62,84);
+INSERT INTO `u_user_preferences` VALUES (63,NULL),(64,NULL),(65,NULL),(58,80),(59,81),(60,82),(61,83),(62,84);
 /*!40000 ALTER TABLE `u_user_preferences` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -660,7 +660,7 @@ CREATE TABLE `u_users` (
   CONSTRAINT `registration_campaign_medium` FOREIGN KEY (`reg_cmp_medium_id`) REFERENCES `u_cmp_medium` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `registration_campaign_name` FOREIGN KEY (`reg_cmp_name_id`) REFERENCES `u_cmp` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `registration_campaign_source` FOREIGN KEY (`reg_cmp_source_id`) REFERENCES `u_cmp_source` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -669,7 +669,7 @@ CREATE TABLE `u_users` (
 
 LOCK TABLES `u_users` WRITE;
 /*!40000 ALTER TABLE `u_users` DISABLE KEYS */;
-INSERT INTO `u_users` VALUES (58,1,'2012-01-24 20:41:58','userpass','irkko','admin','irina.v.kovaleva@gmail.com','37cb569839693ca6f1401e91b17251dff8b14bdb','4f1f17ecac29b',NULL,NULL,NULL,0,NULL,'0000-00-00 00:00:00',5,NULL,NULL,NULL,NULL,NULL,NULL),(59,1,'2012-01-25 22:00:24','userpass','Paul','spacediver','paul.sutyrin@gmail.com','7fc9bad645c1c263324a47a456b8c3a3f1c095f0','4f207b78d317a',NULL,NULL,NULL,0,NULL,'0000-00-00 00:00:00',6,NULL,NULL,NULL,NULL,NULL,NULL),(60,1,'2012-02-06 17:13:06','userpass','irina','webdeva','i_smith@mail.ru','e7f9d5511be12eafadc3aa6d2cbf066fb485ae23','4f300a22b9af3',NULL,NULL,NULL,0,NULL,'0000-00-00 00:00:00',19,NULL,NULL,NULL,NULL,NULL,NULL),(61,1,'2012-02-06 18:58:29','userpass','Sergey Chernyshev','sergeychernyshev','sergey.chernyshev@gmail.com','c55251957fc83115907355d2adfaca1b9be0fc54','4f3022d552acb',NULL,NULL,NULL,0,NULL,'0000-00-00 00:00:00',13,NULL,NULL,NULL,NULL,NULL,NULL),(62,1,'2012-02-14 17:18:38','userpass','qqq','tst','qqq@mail.ru','82d3b0af6c1403f08091816346ad1c5de2f8109b','4f3a976e8bbbc',NULL,NULL,NULL,0,NULL,'0000-00-00 00:00:00',7,NULL,NULL,NULL,NULL,NULL,NULL),(63,1,'2012-02-17 16:59:40','userpass','whale','whale','whale2.box@gmail.com','88c97956c8b3e77cb2bdad306d1a14b0fe8762b3','4f3e877c1ed28',NULL,NULL,NULL,0,NULL,'0000-00-00 00:00:00',0,NULL,NULL,NULL,NULL,NULL,NULL),(64,1,'2012-02-17 17:04:10','userpass','whale','whale2','whl@sinijkit.ru','077c276d158f6c769bd0bd8ab9d77646cf39c1b6','4f3e888ac69c0',NULL,NULL,NULL,0,NULL,'0000-00-00 00:00:00',0,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `u_users` VALUES (58,1,'2012-01-24 20:41:58','userpass','irkko','admin','irina.v.kovaleva@gmail.com','37cb569839693ca6f1401e91b17251dff8b14bdb','4f1f17ecac29b',NULL,NULL,NULL,0,NULL,'0000-00-00 00:00:00',5,NULL,NULL,NULL,NULL,NULL,NULL),(59,1,'2012-01-25 22:00:24','userpass','Paul','spacediver','paul.sutyrin@gmail.com','7fc9bad645c1c263324a47a456b8c3a3f1c095f0','4f207b78d317a',NULL,NULL,NULL,0,NULL,'0000-00-00 00:00:00',6,NULL,NULL,NULL,NULL,NULL,NULL),(60,1,'2012-02-06 17:13:06','userpass','irina','webdeva','i_smith@mail.ru','e7f9d5511be12eafadc3aa6d2cbf066fb485ae23','4f300a22b9af3',NULL,NULL,NULL,0,NULL,'0000-00-00 00:00:00',19,NULL,NULL,NULL,NULL,NULL,NULL),(61,1,'2012-02-06 18:58:29','userpass','Sergey Chernyshev','sergeychernyshev','sergey.chernyshev@gmail.com','c55251957fc83115907355d2adfaca1b9be0fc54','4f3022d552acb',NULL,NULL,NULL,0,NULL,'0000-00-00 00:00:00',13,NULL,NULL,NULL,NULL,NULL,NULL),(62,1,'2012-02-14 17:18:38','userpass','qqq','tst','qqq@mail.ru','82d3b0af6c1403f08091816346ad1c5de2f8109b','4f3a976e8bbbc',NULL,NULL,NULL,0,NULL,'0000-00-00 00:00:00',7,NULL,NULL,NULL,NULL,NULL,NULL),(63,1,'2012-02-17 16:59:40','userpass','whale','whale','whale2.box@gmail.com','88c97956c8b3e77cb2bdad306d1a14b0fe8762b3','4f3e877c1ed28',NULL,NULL,NULL,0,NULL,'0000-00-00 00:00:00',0,NULL,NULL,NULL,NULL,NULL,NULL),(64,1,'2012-02-17 17:04:10','userpass','whale','whale2','whl@sinijkit.ru','077c276d158f6c769bd0bd8ab9d77646cf39c1b6','4f3e888ac69c0',NULL,NULL,NULL,0,NULL,'0000-00-00 00:00:00',0,NULL,NULL,NULL,NULL,NULL,NULL),(65,1,'2012-02-20 14:06:42','userpass','me','me','me@internet.com','f43234aa330d70e192e807b9b137a532930c21c1','4f425372cb5c5',NULL,NULL,NULL,0,NULL,'0000-00-00 00:00:00',0,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `u_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -682,4 +682,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-02-20  1:29:13
+-- Dump completed on 2012-02-20 18:07:12
