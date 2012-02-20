@@ -3,8 +3,8 @@
 2. checkout simpletest to ./simpletest
 3. tailor users_config.php to your local mysql settings.
 3.1. It is best if you login to your localhost mysql root and execute:
-    create database startup_api_test;
-    grant all privileges on startup_api_test.* to 'startup'@'localhost' identified by 'startup';
+    create database startup_test;
+    grant all privileges on startup_test.* to 'startup'@'localhost' identified by 'startup';
     flush privileges;
 4. cd users/tests
 5. make test
